@@ -1,6 +1,6 @@
 let apiUrl
 const apiUrls = {
-  production: 'https://wdi-library-api.herokuapp.com/books',
+  production: 'http://localhost:4741',
   development: 'http://localhost:4741'
 }
 
