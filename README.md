@@ -55,3 +55,4 @@ Entity Relationship Diagrams, along with wireframes, allowed us to get a better 
 
 #### Gantt chart:
 <a href="https://imgur.com/a6NSTOk"><img src="https://i.imgur.com/a6NSTOk.png" title="source: imgur.com" /></a>
+>>>>>>> Added README
