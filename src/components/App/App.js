@@ -11,6 +11,7 @@ import ChangePassword from '../ChangePassword/ChangePassword'
 import Posts from '../routes/Posts'
 import PostCreate from '../routes/PostCreate'
 import Post from '../routes/Post'
+import PostEdit from '../routes/PostEdit'
 
 class App extends Component {
   constructor () {
@@ -65,6 +66,9 @@ class App extends Component {
           )}/>
           <AuthenticatedRoute user={user} exact path='/posts/:id' render={ (props) => (
             <Post {...props} user={user}/>
+          )}/>
+          <AuthenticatedRoute user={user} exact path='/posts/:id/edit' render={ (props) => (
+            <PostEdit {...props} user={user}/>
           )}/>
         </main>
       </Fragment>

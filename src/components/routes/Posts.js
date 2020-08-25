@@ -19,7 +19,6 @@ class Posts extends Component {
   // into the DOM (first appears)
   componentDidMount () {
     // make a GET request for all of the books
-    console.log(this.state.posts)
     axios({
       url: `${apiUrl}/posts`,
       method: 'GET',
