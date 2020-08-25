@@ -62,7 +62,7 @@ class Post extends Component {
       // redirect to the home page
       return <Redirect to={{
         // Redirect to the home page ('/')
-        pathname: '/',
+        pathname: '/posts',
         // Pass along a message, in state, that we can show
         state: { message: 'Deleted post successfully' }
       }} />
@@ -71,7 +71,7 @@ class Post extends Component {
     return (
       <div>
         <h4>{post.title}</h4>
-        <p>Author: {post.author}</p>
+        <p>{post.content}</p>
         <button onClick={this.destroyPost}>Delete Post</button>
         {/* Add a link to the edit book route when you click the edit button */}
         <Link to={`/posts/${this.props.match.params.id}/edit`}>

@@ -37,7 +37,7 @@ class Posts extends Component {
     if (this.state.posts) {
       const posts = this.state.posts.map(post => (
         <li key={post._id}>
-          <Link to={`/books/${post._id}`}>
+          <Link to={`/posts/${post._id}`}>
             {post.title}
           </Link>
         </li>
