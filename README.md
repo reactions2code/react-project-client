@@ -30,6 +30,15 @@ Entity Relationship Diagrams, along with wireframes, allowed us to get a better 
 
 ### Strech Goal(s)
 
+```
+
+### If you see an error message, post it here. If you don't, what unexpected behavior are you seeing?
+error: Failed to merge in the changes.
+Patch failed at 0001 Added README
+Use 'git am --show-current-patch' to see the failed patch
+
+Resolve all conflicts manually, mark them as resolved with
+"git add/rm
 - Allow users to comment on comments.
 - Allow users to create categories or topics and add posts to specific category or topic message boards
 - Allow users to add tags to a post
@@ -55,4 +64,3 @@ Entity Relationship Diagrams, along with wireframes, allowed us to get a better 
 
 #### Gantt chart:
 <a href="https://imgur.com/a6NSTOk"><img src="https://i.imgur.com/a6NSTOk.png" title="source: imgur.com" /></a>
->>>>>>> Added README
