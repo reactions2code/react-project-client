@@ -30,8 +30,8 @@ class Post extends Component {
         'Authorization': `Bearer ${this.props.user.token}`
       }
     })
+      // set the `book` state to the `book` data we got back from the response (res.data.book)
       .then(res => this.setState({ post: res.data.post }))
-      .then(res => this.setState({ id: this.props.match.params.id }))
       .catch(console.error)
   }
 
@@ -51,6 +51,7 @@ class Post extends Component {
   render () {
     // destructure our book property out of state
     const { post, deleted } = this.state
+
     // if we don't have a book (book is null)
     if (!post) {
       return <p>Loading...</p>
@@ -86,10 +87,7 @@ class Post extends Component {
         <Link to={`/posts/${this.props.match.params.id}/edit`}>
           <button>Edit</button>
         </Link>
-        <Link to={`/posts/${this.props.match.params.id}/comments`}>
-          <button>Comment</button>
-        </Link>
-        {commentHtml}
+        <Link to='/posts'>Back to all posts</Link>
       </div>
     )
   }
