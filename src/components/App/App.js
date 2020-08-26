@@ -12,6 +12,7 @@ import Posts from '../routes/Posts'
 import PostCreate from '../routes/PostCreate'
 import Post from '../routes/Post'
 import PostEdit from '../routes/PostEdit'
+import CommentCreate from '../routes/CommentCreate'
 
 class App extends Component {
   constructor () {
@@ -69,6 +70,9 @@ class App extends Component {
           )}/>
           <AuthenticatedRoute user={user} exact path='/posts/:id/edit' render={ (props) => (
             <PostEdit {...props} user={user}/>
+          )}/>
+          <AuthenticatedRoute user= {user} exact path='/posts/:id/comments' render={ (props) => (
+            <CommentCreate {...props} user={user}/>
           )}/>
         </main>
       </Fragment>
