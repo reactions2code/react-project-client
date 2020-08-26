@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom'
+import CommentIndex from './CommentIndex'
 
 // import the api's url
 import apiUrl from '../../apiConfig'
@@ -52,7 +53,6 @@ class Post extends Component {
   render () {
     // destructure our book property out of state
     const { post, deleted } = this.state
-
     // if we don't have a book (book is null)
     if (!post) {
       return <p>Loading...</p>
@@ -68,7 +68,17 @@ class Post extends Component {
         state: { message: 'Deleted post successfully' }
       }} />
     }
-    console.log(this.state)
+    const commentHtml = (
+      <div>
+        {this.state.post.comments.map(comment => (
+          <CommentIndex
+            key={comment.id}
+            content={comment.content}
+          />
+        ))}
+      </div>
+    )
+    console.log(this.state.post.comments)
     return (
       <div>
         <h4>{post.title}</h4>
@@ -81,6 +91,7 @@ class Post extends Component {
         <Link to={`/posts/${this.props.match.params.id}/comments`}>
           <button>Comment</button>
         </Link>
+        {commentHtml}
       </div>
     )
   }
