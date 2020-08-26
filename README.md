@@ -37,7 +37,7 @@ error: Failed to merge in the changes.
 Patch failed at 0001 Added README
 Use 'git am --show-current-patch' to see the failed patch
 
-Resolve all conflicts manually, mark them as resolved with
+Resolve all conflicts manually, mark them Commentas resolved with
 "git add/rm
 - Allow users to comment on comments.
 - Allow users to create categories or topics and add posts to specific category or topic message boards
@@ -45,16 +45,31 @@ Resolve all conflicts manually, mark them as resolved with
 
 ### Technologies Used
 
-- HTML
-- CSS/SASS
-- Bootstrap
+- MongoDB
+- Mongoose
 - Javascript
-- ReactComment
+- React
 - React Router
+- PHP
+
+### Catalog of Routes
+Comment
+| Verb   | URI Pattern            |
+|--------|------------------------|
+| POST   | `/posts/:id/comments`  |
+| PATCH  | `/posts/:id/comments/:commentid` |
+| DELETE | `/posts/:id/comments/:commentid` |
+| GET      | `/posts`        |
+| GET      | `/posts/:id`|
+| POST     | `/posts`|
+| PATCH    | `/posts/:id`|
+| DELETE  | `/posts/:id`|
+
+
 
 ### Unsolved Problems
 
-- Still need to ....
+- Still need to ....Comment
 - Would like to eventually ....
 
 ## Images
