@@ -12,7 +12,7 @@ class CommentCreate extends Component {
       comment: {
         content: ''
       },
-      createdId: null,
+      created: false,
       postId: null
     }
   }
@@ -39,19 +39,19 @@ class CommentCreate extends Component {
       },
       data: { comment: this.state.comment }
     })
-      .then(res => this.setState({ createdId: res.data.comment._id }))
+      .then(res => this.setState({ created: true }))
       .catch(console.error)
   }
 
   render () {
     // destructure book to show in the form below, and createdId to redirect
-    const { comment, createdId } = this.state
+    const { comment, created } = this.state
     const { handleChange, handleSubmit } = this
 
     // when the user hits submit to finish editing the book
-    if (createdId) {
+    if (created) {
       // redirect to the show page (route)
-      return <Redirect to={`/posts/${this.props.match.params.id}/comments/${createdId}`} />
+      return <Redirect to={`/posts/${this.props.match.params.id}`} />
     }
     console.log(this.props)
     return (
