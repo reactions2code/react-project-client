@@ -17,9 +17,7 @@ class Post extends Component {
       // Initially, our book state will be null, until the API request finishes
       post: null,
       // initially this book has not been deleted yet
-      deleted: false,
-
-      id: null
+      deleted: false
 
     }
   }
