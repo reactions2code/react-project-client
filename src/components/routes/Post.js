@@ -88,6 +88,7 @@ class Post extends Component {
           <button>Edit</button>
         </Link>
         <Link to='/posts'>Back to all posts</Link>
+        {commentHtml}
       </div>
     )
   }
