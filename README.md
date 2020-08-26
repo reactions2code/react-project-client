@@ -49,7 +49,7 @@ Resolve all conflicts manually, mark them as resolved with
 - CSS/SASS
 - Bootstrap
 - Javascript
-- React
+- ReactComment
 - React Router
 
 ### Unsolved Problems
