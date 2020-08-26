@@ -8,6 +8,10 @@ import SignUp from '../SignUp/SignUp'
 import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
+import Posts from '../routes/Posts'
+import PostCreate from '../routes/PostCreate'
+import Post from '../routes/Post'
+import PostEdit from '../routes/PostEdit'
 
 class App extends Component {
   constructor () {
@@ -42,19 +46,30 @@ class App extends Component {
           />
         ))}
         <main className="container">
-          <Route path='/sign-up' render={() => (
+          <Route exact path='/sign-up' render={() => (
             <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
           )} />
-          <Route path='/sign-in' render={() => (
+          <Route exact path='/sign-in' render={() => (
             <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
           )} />
-          <AuthenticatedRoute user={user} path='/sign-out' render={() => (
+          <AuthenticatedRoute user={user} exact path='/sign-out' render={() => (
             <SignOut msgAlert={this.msgAlert} clearUser={this.clearUser} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/change-password' render={() => (
+          <AuthenticatedRoute user={user} exact path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
           )} />
-          <AuthenticatedRoute user={user} exact path='/books' 
+          <AuthenticatedRoute user={user} exact path='/posts' render={ () => (
+            <Posts user={user} />
+          )}/>
+          <AuthenticatedRoute user={user} exact path='/posts-create' render={ () => (
+            <PostCreate user={user}/>
+          )}/>
+          <AuthenticatedRoute user={user} exact path='/posts/:id' render={ (props) => (
+            <Post {...props} user={user}/>
+          )}/>
+          <AuthenticatedRoute user={user} exact path='/posts/:id/edit' render={ (props) => (
+            <PostEdit {...props} user={user}/>
+          )}/>
         </main>
       </Fragment>
     )
