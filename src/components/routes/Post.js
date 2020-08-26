@@ -20,9 +20,7 @@ class Post extends Component {
     }
   }
 
-  // runs when the component appears (is created and inserted into DOM)
   componentDidMount () {
-    // make a request to get the book, with the current routes'id
     axios({
       url: `${apiUrl}/posts/${this.props.match.params.id}`,
       method: 'get',
@@ -30,7 +28,6 @@ class Post extends Component {
         'Authorization': `Bearer ${this.props.user.token}`
       }
     })
-      // set the `book` state to the `book` data we got back from the response (res.data.book)
       .then(res => this.setState({ post: res.data.post }))
       .catch(console.error)
   }
