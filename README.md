@@ -16,7 +16,7 @@ Entity Relationship Diagrams, along with wireframes, allowed us to get a better 
 
 ### User Stories
 
-- As an unregistered user, I would like to sign up with email and password.
+- 'As an unregistered user, I would like to sign up with email and password.
 - As a registered user, I would like to sign in with email and password.
 - As a signed in user, I would like to change password.
 - As a signed in user, I would like to sign out.
@@ -27,10 +27,19 @@ Entity Relationship Diagrams, along with wireframes, allowed us to get a better 
 - As a signed in user, I would like to view all other users' posts on the message board.
 - As a signed in user, I would like to comment on other users' posts on the message board.
 - As a signed in user, I would like to edit my comment on other users' posts on the message board.
-- As a signed in user, I would like to delete my comment on other users' posts on the message board.
+- As a signed in user, I would like to delete my comment on other users' posts on the message board.'
 
 ### Strech Goal(s)
 
+```
+
+### If you see an error message, post it here. If you don't, what unexpected behavior are you seeing?
+error: Failed to merge in the changes.
+Patch failed at 0001 Added README
+Use 'git am --show-current-patch' to see the failed patch
+
+Resolve all conflicts manually, mark them Commentas resolved with
+"git add/rm
 - Allow users to comment on comments.
 - Allow users to create categories or topics and add posts to specific category or topic message boards
 - Allow users to add tags to a post
@@ -61,15 +70,13 @@ Entity Relationship Diagrams, along with wireframes, allowed us to get a better 
 
 ### Unsolved Problems
 
-- Still need to ....
+- Still need to ....Comment
 - Would like to eventually ....
 
 ## Images
 
 #### Wireframe:
-[wireframe](https://lucidchart.zendesk.com/hc/article_attachments/360001080866/Facebook_Wireframe_-_New_Page.png)
+<a href="https://imgur.com/td2RI7F"><img src="https://i.imgur.com/td2RI7F.png" title="source: imgur.com" /></a>
 
----
-
-#### ERD:
-[ERD](https://i.imgur.com/EQVqFoy.png)
+#### Gantt chart:
+<a href="https://imgur.com/a6NSTOk"><img src="https://i.imgur.com/a6NSTOk.png" title="source: imgur.com" /></a>

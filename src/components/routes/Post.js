@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom'
+<<<<<<< HEAD
+=======
+import CommentIndex from './CommentIndex'
+>>>>>>> development
 
 // import the api's url
 import apiUrl from '../../apiConfig'
@@ -17,12 +21,20 @@ class Post extends Component {
       post: null,
       // initially this book has not been deleted yet
       deleted: false
+<<<<<<< HEAD
     }
   }
 
   // runs when the component appears (is created and inserted into DOM)
   componentDidMount () {
     // make a request to get the book, with the current routes'id
+=======
+
+    }
+  }
+
+  componentDidMount () {
+>>>>>>> development
     axios({
       url: `${apiUrl}/posts/${this.props.match.params.id}`,
       method: 'get',
@@ -47,6 +59,35 @@ class Post extends Component {
       .then(() => this.setState({ deleted: true }))
       .catch(console.error)
   }
+<<<<<<< HEAD
+=======
+  destroyComment = () => {
+    axios({
+      url: `${apiUrl}/posts/${this.props.match.params.id}/comments/${this.state.post.comments._id}`,
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${this.props.user.token}`
+      }
+    })
+      .then(<Redirect to={{
+        pathname: `/posts/${this.props.match.params.id}`
+      }} />)
+      .catch(console.error)
+  }
+  editComment = () => {
+    axios({
+      url: `${apiUrl}/posts/${this.props.match.params.id}/comments/${this.state.post.comments._id}`,
+      method: 'PATCH',
+      headers: {
+        'Authorization': `Bearer ${this.props.user.token}`
+      }
+    })
+      .then(<Redirect to={{
+        pathname: `/posts/${this.props.match.params.id}`
+      }} />)
+      .catch(console.error)
+  }
+>>>>>>> development
 
   render () {
     // destructure our book property out of state
@@ -67,7 +108,23 @@ class Post extends Component {
         state: { message: 'Deleted post successfully' }
       }} />
     }
+<<<<<<< HEAD
 
+=======
+    const commentHtml = (
+      <div>
+        {this.state.post.comments.map(comment => (
+          <CommentIndex
+            key={comment._id}
+            content={comment.content}
+            deleteComment={this.destroyComment}
+            editComment={this.editComment}
+          />
+        ))}
+      </div>
+    )
+    console.log(this.state.post.comments)
+>>>>>>> development
     return (
       <div>
         <h4>{post.title}</h4>
@@ -77,7 +134,11 @@ class Post extends Component {
         <Link to={`/posts/${this.props.match.params.id}/edit`}>
           <button>Edit</button>
         </Link>
+<<<<<<< HEAD
         <Link to='/posts'>Back to all posts</Link>
+=======
+        {commentHtml}
+>>>>>>> development
       </div>
     )
   }
