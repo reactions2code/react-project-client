@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import CommentIndex from './CommentIndex'
+import Button from 'react-bootstrap/Button'
 
 // import the api's url
 import apiUrl from '../../apiConfig'
@@ -110,10 +111,10 @@ class Post extends Component {
       <div>
         <h4>{post.title}</h4>
         <p>{post.content}</p>
-        <button onClick={this.destroyPost}>Delete Post</button>
+        <Button variant= "outline-danger" onClick={this.destroyPost}>Delete Post</Button>
         {/* Add a link to the edit book route when you click the edit button */}
         <Link to={`/posts/${this.props.match.params.id}/edit`}>
-          <button>Edit</button>
+          <Button variant="outline-warning">Edit</Button>
         </Link>
         {commentHtml}
       </div>

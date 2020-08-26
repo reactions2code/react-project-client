@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
 
 const CommentForm = ({ comment, handleSubmit, handleChange, cancelPath }) => (
   <form onSubmit={handleSubmit}>
@@ -10,9 +11,9 @@ const CommentForm = ({ comment, handleSubmit, handleChange, cancelPath }) => (
       name='content'
       onChange={handleChange}
     />
-    <button type='submit'>Submit</button>
+    <Button variant="success" type="submit">Submit</Button>
     <Link to={cancelPath}>
-      <button>Cancel</button>
+      <Button variant="dark">Cancel</Button>
     </Link>
   </form>
 )
