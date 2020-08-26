@@ -49,8 +49,21 @@ class Post extends Component {
   }
   destroyComment = () => {
     axios({
-      url: `${apiUrl}/posts/${this.props.match.params.id}/comments`,
+      url: `${apiUrl}/posts/${this.props.match.params.id}/comments/${this.state.post.comments._id}`,
       method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${this.props.user.token}`
+      }
+    })
+      .then(<Redirect to={{
+        pathname: `/posts/${this.props.match.params.id}`
+      }} />)
+      .catch(console.error)
+  }
+  editComment = () => {
+    axios({
+      url: `${apiUrl}/posts/${this.props.match.params.id}/comments/${this.state.post.comments._id}`,
+      method: 'PATCH',
       headers: {
         'Authorization': `Bearer ${this.props.user.token}`
       }
@@ -84,9 +97,10 @@ class Post extends Component {
       <div>
         {this.state.post.comments.map(comment => (
           <CommentIndex
-            key={comment.id}
+            key={comment._id}
             content={comment.content}
             deleteComment={this.destroyComment}
+            editComment={this.editComment}
           />
         ))}
       </div>
