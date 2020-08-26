@@ -1,10 +1,10 @@
 import React from 'react'
 
-const CommentIndex = ({ content }) => (
+const CommentIndex = ({ content, deleteComment }) => (
   <div>
     {content} <br/>
     <button>Edit</button>
-    <button>Delete</button>
+    <button onClick={deleteComment}>Delete</button>
   </div>
 )
 

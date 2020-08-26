@@ -47,6 +47,19 @@ class Post extends Component {
       .then(() => this.setState({ deleted: true }))
       .catch(console.error)
   }
+  destroyComment = () => {
+    axios({
+      url: `${apiUrl}/posts/${this.props.match.params.id}/comments`,
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${this.props.user.token}`
+      }
+    })
+      .then(<Redirect to={{
+        pathname: `/posts/${this.props.match.params.id}`
+      }} />)
+      .catch(console.error)
+  }
 
   render () {
     // destructure our book property out of state
@@ -73,6 +86,7 @@ class Post extends Component {
           <CommentIndex
             key={comment.id}
             content={comment.content}
+            deleteComment={this.destroyComment}
           />
         ))}
       </div>
@@ -87,7 +101,6 @@ class Post extends Component {
         <Link to={`/posts/${this.props.match.params.id}/edit`}>
           <button>Edit</button>
         </Link>
-        <Link to='/posts'>Back to all posts</Link>
         {commentHtml}
       </div>
     )
