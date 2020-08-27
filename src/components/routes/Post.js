@@ -31,7 +31,6 @@ class Post extends Component {
         'Authorization': `Bearer ${this.props.user.token}`
       }
     })
-      // set the `book` state to the `book` data we got back from the response (res.data.book)
       .then(res => this.setState({ post: res.data.post }))
       .catch(console.error)
   }
@@ -105,6 +104,9 @@ class Post extends Component {
         {/* Add a link to the edit book route when you click the edit button */}
         <Link to={`/posts/${this.props.match.params.id}/edit`}>
           <OutlineButton variant="outline-warning">Edit</OutlineButton>
+        </Link>
+        <Link to={`/posts/${this.props.match.params.id}/comments`}>
+          <OutlineButton variant="outline-warning">Comment</OutlineButton>
         </Link>
         {commentHtml}
       </div>
