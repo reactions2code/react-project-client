@@ -30,6 +30,7 @@ class CommentEdit extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
+    console.log(this.props.user)
     axios({
       url: `${apiUrl}/posts/${this.props.match.params.id}/comments/${this.props.match.params.commentid}`,
       method: 'PATCH',
@@ -52,6 +53,7 @@ class CommentEdit extends Component {
       // redirect to the show page (route)
       return <Redirect to={`/posts/${this.props.match.params.id}`} />
     }
+
     return (
       <div>
         <CommentForm
