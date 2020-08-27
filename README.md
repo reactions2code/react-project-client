@@ -30,15 +30,6 @@ Entity Relationship Diagrams, along with wireframes, allowed us to get a better 
 
 ### Strech Goal(s)
 
-```
-
-### If you see an error message, post it here. If you don't, what unexpected behavior are you seeing?
-error: Failed to merge in the changes.
-Patch failed at 0001 Added README
-Use 'git am --show-current-patch' to see the failed patch
-
-Resolve all conflicts manually, mark them Commentas resolved with
-"git add/rm
 - Allow users to comment on comments.
 - Allow users to create categories or topics and add posts to specific category or topic message boards
 - Allow users to add tags to a post
@@ -53,7 +44,7 @@ Resolve all conflicts manually, mark them Commentas resolved with
 - PHP
 
 ### Catalog of Routes
-Comment
+
 | Verb   | URI Pattern            |
 |--------|------------------------|
 | POST   | `/posts/:id/comments`  |
@@ -69,8 +60,8 @@ Comment
 
 ### Unsolved Problems
 
-- Still need to ....Comment
-- Would like to eventually ....
+- Still need style the overall look and feel of the application
+- Would like to eventually add a home page that renders all posts so unauthenticated users can view all posts.
 
 ## Images
 
