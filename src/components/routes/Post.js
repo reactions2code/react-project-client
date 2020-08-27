@@ -48,9 +48,9 @@ class Post extends Component {
       .then(() => this.setState({ deleted: true }))
       .catch(console.error)
   }
-  destroyComment = () => {
+  destroyComment = (commentId) => {
     axios({
-      url: `${apiUrl}/posts/${this.props.match.params.id}/comments/${this.state.post.comments._id}`,
+      url: `${apiUrl}/posts/${this.props.match.params.id}/comments/${commentId}`,
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${this.props.user.token}`
@@ -61,18 +61,8 @@ class Post extends Component {
       }} />)
       .catch(console.error)
   }
-  editComment = () => {
-    axios({
-      url: `${apiUrl}/posts/${this.props.match.params.id}/comments/${this.state.post.comments._id}`,
-      method: 'PATCH',
-      headers: {
-        'Authorization': `Bearer ${this.props.user.token}`
-      }
-    })
-      .then(<Redirect to={{
-        pathname: `/posts/${this.props.match.params.id}`
-      }} />)
-      .catch(console.error)
+  editComment = (commentId) => {
+    console.log(commentId)
   }
 
   render () {
@@ -100,8 +90,8 @@ class Post extends Component {
           <CommentIndex
             key={comment._id}
             content={comment.content}
-            deleteComment={this.destroyComment}
-            editComment={this.editComment}
+            deleteComment={() => this.destroyComment(comment._id)}
+            editComment={() => this.editComment(comment._id)}
           />
         ))}
       </div>
