@@ -36,7 +36,6 @@ class PostEdit extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    console.log(this.props.user)
     axios({
       url: `${apiUrl}/posts/${this.props.match.params.id}`,
       method: 'PATCH',

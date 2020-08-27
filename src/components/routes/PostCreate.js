@@ -31,7 +31,6 @@ class PostCreate extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    console.log(this.props.user)
     axios({
       url: `${apiUrl}/posts`,
       method: 'POST',

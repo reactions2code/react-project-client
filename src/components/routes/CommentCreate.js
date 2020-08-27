@@ -30,7 +30,6 @@ class CommentCreate extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    console.log(this.props.user)
     axios({
       url: `${apiUrl}/posts/${this.props.match.params.id}/comments`,
       method: 'POST',
@@ -53,7 +52,6 @@ class CommentCreate extends Component {
       // redirect to the show page (route)
       return <Redirect to={`/posts/${this.props.match.params.id}`} />
     }
-    console.log(this.props)
     return (
       <div>
         <CommentForm

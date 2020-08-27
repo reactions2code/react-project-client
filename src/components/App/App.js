@@ -14,6 +14,7 @@ import Post from '../routes/Post'
 import PostEdit from '../routes/PostEdit'
 import CommentCreate from '../routes/CommentCreate'
 import CommentEdit from '../routes/CommentEdit'
+import { withRouter } from 'react-router'
 
 class App extends Component {
   constructor () {
@@ -84,4 +85,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default withRouter(App)

@@ -2,12 +2,9 @@ import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import CommentIndex from './CommentIndex'
 import OutlineButton from '../shared/OutlineButton.js'
-
-// import the api's url
 import apiUrl from '../../apiConfig'
-
-// Import axios so we can make HTTP requests
 import axios from 'axios'
+import { withRouter } from 'react-router'
 
 class Post extends Component {
   constructor (props) {
@@ -61,7 +58,8 @@ class Post extends Component {
       .catch(console.error)
   }
   editComment = (commentId) => {
-    console.log(commentId)
+    const newPath = `/posts/${this.props.match.params.id}/comments/${commentId}/edit`
+    this.props.history.push(newPath)
   }
 
   render () {
@@ -95,7 +93,6 @@ class Post extends Component {
         ))}
       </div>
     )
-    console.log(this.state.post.comments)
     return (
       <div>
         <h4>{post.title}</h4>
@@ -114,4 +111,4 @@ class Post extends Component {
   }
 }
 
-export default Post
+export default withRouter(Post)
