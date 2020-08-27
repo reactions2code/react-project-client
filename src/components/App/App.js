@@ -13,6 +13,8 @@ import PostCreate from '../routes/PostCreate'
 import Post from '../routes/Post'
 import PostEdit from '../routes/PostEdit'
 import CommentCreate from '../routes/CommentCreate'
+import CommentEdit from '../routes/CommentEdit'
+import { withRouter } from 'react-router'
 
 class App extends Component {
   constructor () {
@@ -74,10 +76,13 @@ class App extends Component {
           <AuthenticatedRoute user= {user} exact path='/posts/:id/comments' render={ (props) => (
             <CommentCreate {...props} user={user}/>
           )}/>
+          <AuthenticatedRoute user= {user} exact path='/posts/:id/comments/:commentid/edit' render={ (props) => (
+            <CommentEdit {...props} user={user}/>
+          )}/>
         </main>
       </Fragment>
     )
   }
 }
 
-export default App
+export default withRouter(App)

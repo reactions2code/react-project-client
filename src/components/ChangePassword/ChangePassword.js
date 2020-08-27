@@ -5,7 +5,7 @@ import { changePassword } from '../../api/auth'
 import messages from '../AutoDismissAlert/messages'
 
 import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+import OutlineButton from '../../components/shared/OutlineButton'
 
 class ChangePassword extends Component {
   constructor () {
@@ -73,12 +73,12 @@ class ChangePassword extends Component {
                 onChange={this.handleChange}
               />
             </Form.Group>
-            <Button
+            <OutlineButton
               variant="primary"
               type="submit"
             >
               Submit
-            </Button>
+            </OutlineButton>
           </Form>
         </div>
       </div>
