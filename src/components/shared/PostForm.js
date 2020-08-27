@@ -10,8 +10,7 @@ const PostForm = ({ post, handleSubmit, handleChange, cancelPath }) => (
       value={post.title}
       name='title'
       onChange={handleChange}
-    /> <br />
-
+    />
     <label>content</label>
     <input
       placeholder='Content...'
@@ -19,7 +18,6 @@ const PostForm = ({ post, handleSubmit, handleChange, cancelPath }) => (
       name='content'
       onChange={handleChange}
     />
-
     <label>Topic</label>
     <input
       placeholder='topic'
@@ -27,7 +25,6 @@ const PostForm = ({ post, handleSubmit, handleChange, cancelPath }) => (
       name='topic'
       onChange={handleChange}
     />
-
     <button type='submit'>Submit</button>
     <Link to={cancelPath}>
       <OutlineButton size="sm" variant="outline-dark">Cancel</OutlineButton>
