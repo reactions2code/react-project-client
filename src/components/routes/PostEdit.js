@@ -65,7 +65,7 @@ class PostEdit extends Component {
           post={post}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
-          cancelPath='/'
+          cancelPath={`/posts/${this.props.match.params.id}`}
         />
       </div>
     )
