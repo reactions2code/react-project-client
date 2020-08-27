@@ -6,7 +6,7 @@ This application allows signed in users to post text and images of various topic
 
 - [Deployed Client](https://reactions2code.github.io/react-project-client/)
 - [Api Repo](https://github.com/reactions2code/react-project-api)
-- [Deployed API](www.link.com)
+- [Deployed API](https://git.heroku.com/salty-cove-83012.git)
 
 ## Planning Story
 
