@@ -52,9 +52,16 @@ class Post extends Component {
         'Authorization': `Bearer ${this.props.user.token}`
       }
     })
-      .then(<Redirect to={{
-        pathname: `/posts/${this.props.match.params.id}`
-      }} />)
+      .then(() => {
+        return axios({
+          url: `${apiUrl}/posts/${this.props.match.params.id}`,
+          method: 'get',
+          headers: {
+            'Authorization': `Bearer ${this.props.user.token}`
+          }
+        })
+      })
+      .then(res => this.setState({ post: res.data.post }))
       .catch(console.error)
   }
   editComment = (commentId) => {
@@ -63,10 +70,8 @@ class Post extends Component {
   }
 
   render () {
-    // destructure our book property out of state
     const { post, deleted } = this.state
 
-    // if we don't have a book (book is null)
     if (!post) {
       return <p>Loading...</p>
     }
@@ -75,12 +80,11 @@ class Post extends Component {
     if (deleted) {
       // redirect to the home page
       return <Redirect to={{
-        // Redirect to the home page ('/')
         pathname: '/posts',
-        // Pass along a message, in state, that we can show
         state: { message: 'Deleted post successfully' }
       }} />
     }
+
     const commentHtml = (
       <div>
         {this.state.post.comments.map(comment => (
