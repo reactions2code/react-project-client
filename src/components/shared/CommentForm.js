@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Button from 'react-bootstrap/Button'
+import OutlineButton from './OutlineButton.js'
 
 const CommentForm = ({ comment, handleSubmit, handleChange, cancelPath }) => (
   <form onSubmit={handleSubmit}>
@@ -11,9 +11,9 @@ const CommentForm = ({ comment, handleSubmit, handleChange, cancelPath }) => (
       name='content'
       onChange={handleChange}
     />
-    <Button variant="success" type="submit">Submit</Button>
+    <OutlineButton variant="success" type="submit">Submit</OutlineButton>
     <Link to={cancelPath}>
-      <Button variant="dark">Cancel</Button>
+      <OutlineButton variant="dark">Cancel</OutlineButton>
     </Link>
   </form>
 )
