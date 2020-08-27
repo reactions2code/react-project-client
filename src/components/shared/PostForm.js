@@ -4,7 +4,7 @@ import OutlineButton from './OutlineButton.js'
 
 const PostForm = ({ post, handleSubmit, handleChange, cancelPath }) => (
   <form onSubmit={handleSubmit}>
-    <label>Title</label> <br />
+    <label>Title</label>
     <input
       placeholder='Enter a title'
       value={post.title}
@@ -12,21 +12,21 @@ const PostForm = ({ post, handleSubmit, handleChange, cancelPath }) => (
       onChange={handleChange}
     /> <br />
 
-    <label>content</label> <br />
+    <label>content</label>
     <input
       placeholder='Content...'
       value={post.content}
       name='content'
       onChange={handleChange}
-    /> <br />
+    />
 
-    <label>Topic</label> <br />
+    <label>Topic</label>
     <input
       placeholder='topic'
       value={post.topic}
       name='topic'
       onChange={handleChange}
-    /> <br />
+    />
 
     <button type='submit'>Submit</button>
     <Link to={cancelPath}>
