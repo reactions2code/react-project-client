@@ -104,12 +104,12 @@ class Post extends Component {
           <h4>{post.title}</h4>
           <p>{post.content}</p>
           <Link to={`/posts/${this.props.match.params.id}/edit`}>
-            <OutlineButton variant="outline-info">Edit</OutlineButton>
+            <OutlineButton variant="outline-info" size="size">Edit</OutlineButton>
           </Link>
           <Link to={`/posts/${this.props.match.params.id}/comments`}>
-            <OutlineButton variant="outline-info">Comment</OutlineButton>
+            <OutlineButton variant="outline-info" size="sm">Comment</OutlineButton>
           </Link>
-          <OutlineButton variant= "outline-danger" onClick={this.destroyPost}>Delete Post</OutlineButton>
+          <OutlineButton variant= "outline-danger" size="sm" onClick={this.destroyPost}>Delete Post</OutlineButton>
         </div>
         <h3>Comments:</h3>
         {commentHtml}
