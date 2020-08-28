@@ -99,7 +99,6 @@ class Post extends Component {
     )
     return (
       <div>
-<<<<<<< HEAD
         <h4>{post.title}</h4>
         <p>{post.content}</p>
         <OutlineButton variant= "outline-danger" size="sm" onClick={this.destroyPost}>Delete Post</OutlineButton>
@@ -110,7 +109,6 @@ class Post extends Component {
         <Link to={`/posts/${this.props.match.params.id}/comments`}>
           <OutlineButton variant="outline-warning" size="sm">Comment</OutlineButton>
         </Link>
-=======
         <h3>Post:</h3>
         <div className='post'>
           <h4>{post.title}</h4>
@@ -124,7 +122,6 @@ class Post extends Component {
           <OutlineButton variant= "outline-danger" onClick={this.destroyPost}>Delete Post</OutlineButton>
         </div>
         <h3>Comments:</h3>
->>>>>>> development
         {commentHtml}
       </div>
     )
