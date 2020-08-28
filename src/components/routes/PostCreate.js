@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom'
 import PostForm from '../shared/PostForm'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
+import messages from '../AutoDismissAlert/messages'
 
 class PostCreate extends Component {
   constructor (props) {
@@ -39,6 +40,15 @@ class PostCreate extends Component {
       },
       data: { post: this.state.post }
     })
+      .then(res => {
+        this.props.msgAlert({
+          heading: 'Post Created Successfully',
+          message: messages.postCreatedSuccess,
+          variant: 'success'
+        })
+        return res
+      })
+
       .then(res => this.setState({ createdId: res.data.post._id }))
       .catch(console.error)
   }

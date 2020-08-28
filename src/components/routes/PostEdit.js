@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom'
 import PostForm from '../shared/PostForm'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
+import messages from '../AutoDismissAlert/messages'
 
 class PostEdit extends Component {
   constructor (props) {
@@ -44,6 +45,11 @@ class PostEdit extends Component {
       },
       data: { post: this.state.post }
     })
+      .then(res => this.props.msgAlert({
+        heading: 'Post Edited Successfully',
+        message: messages.postEditedSuccess,
+        variant: 'success'
+      }))
       .then(res => this.setState({ updated: true }))
       .catch(console.error)
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import CommentForm from '../shared/CommentForm'
+import messages from '../AutoDismissAlert/messages'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
 
@@ -39,6 +40,12 @@ class CommentEdit extends Component {
       },
       data: { comment: this.state.comment }
     })
+      .then(res => this.props.msgAlert({
+        heading: 'Comment Edited Successfully',
+        message: messages.commentEditSuccess,
+        variant: 'success'
+      }))
+
       .then(res => this.setState({ updated: true }))
       .catch(console.error)
   }
