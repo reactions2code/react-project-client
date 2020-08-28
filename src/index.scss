@@ -1,1 +1,37 @@
 @import '~bootstrap/scss/bootstrap';
+
+.posts {
+  border-left-style: solid;
+  border-width: 5px;
+  border-color: blue;
+  border-radius: 5px;
+  background-color: #cfecff;
+  font-size: 20px;
+  margin: 20px 0px 20px 0px;
+  padding: 0px 0px 0px 10px;
+  width: 400px;
+}
+
+.comments {
+  border-left-style: solid;
+  border-width: 5px;
+  border-color: blue;
+  border-radius: 5px;
+  background-color: #cfecff;
+  font-size: 20px;
+  margin: 20px 0px 20px 0px;
+  padding: 10px 10px 10px 10px;
+  width: 400px;
+}
+
+.post {
+  border-left-style: solid;
+  border-width: 5px;
+  border-color: blue;
+  border-radius: 5px;
+  background-color: #cfecff;
+  font-size: 20px;
+  margin: 20px 0px 20px 0px;
+  padding: 5px 0px 10px 10px;
+  width: 400px;
+}

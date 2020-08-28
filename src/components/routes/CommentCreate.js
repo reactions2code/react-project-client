@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom'
 import CommentForm from '../shared/CommentForm'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
+import { withRouter } from 'react-router'
 
 class CommentCreate extends Component {
   constructor (props) {
@@ -65,4 +66,4 @@ class CommentCreate extends Component {
   }
 }
 
-export default CommentCreate
+export default withRouter(CommentCreate)

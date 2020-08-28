@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
+import { withRouter } from 'react-router'
 
 // This will be our Books Index component (show all books)
 class Posts extends Component {
@@ -35,23 +36,23 @@ class Posts extends Component {
     const posts = null
     if (this.state.posts) {
       const posts = this.state.posts.map(post => (
-        <li key={post._id}>
+        <div key={post._id} className='posts'>
           <Link to={`/posts/${post._id}`}>
             {post.title}
           </Link>
-        </li>
+        </div>
       ))
       return posts
     }
     return (
       <div>
-        <h4>Posts</h4>
-        <ul>
+        <div>
+          <h1>Posts</h1>
           {posts}
-        </ul>
+        </div>
       </div>
     )
   }
 }
 
-export default Posts
+export default withRouter(Posts)
