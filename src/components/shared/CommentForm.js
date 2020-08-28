@@ -4,16 +4,16 @@ import OutlineButton from './OutlineButton.js'
 
 const CommentForm = ({ comment, handleSubmit, handleChange, cancelPath }) => (
   <form onSubmit={handleSubmit}>
-    <label>comment</label>
+    <label>comment</label>{' '}
     <input
       placeholder='comment...'
       value={comment.content}
       name='content'
       onChange={handleChange}
-    />
-    <OutlineButton variant="success" type="submit">Submit</OutlineButton>
+    />{' '}
+    <OutlineButton variant="outline-success" type="submit" size="sm">Submit</OutlineButton>{' '}
     <Link to={cancelPath}>
-      <OutlineButton variant="dark">Cancel</OutlineButton>
+      <OutlineButton variant="outline-dark" size="sm">Cancel</OutlineButton>
     </Link>
   </form>
 )
