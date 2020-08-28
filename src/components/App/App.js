@@ -79,6 +79,18 @@ class App extends Component {
           <AuthenticatedRoute user= {user} exact path='/posts/:id/comments/:commentid/edit' render={ (props) => (
             <CommentEdit {...props} user={user} msgAlert={this.msgAlert} setUpdated={this.setUpdated}/>
           )}/>
+          <Route exact path='/' render={() => {
+            const mystyle = {
+              color: 'white',
+              backgroundColor: 'red',
+              fontFamily: 'Arial'
+            }
+            return (
+              <div style={mystyle}>
+                <p>Please Sign In Above</p>
+              </div>
+            )
+          }}/>
         </main>
       </Fragment>
     )

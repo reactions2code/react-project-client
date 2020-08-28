@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom'
 import PostForm from '../shared/PostForm'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
+import { withRouter } from 'react-router'
 import messages from '../AutoDismissAlert/messages'
 
 class PostCreate extends Component {
@@ -77,4 +78,4 @@ class PostCreate extends Component {
   }
 }
 
-export default PostCreate
+export default withRouter(PostCreate)
