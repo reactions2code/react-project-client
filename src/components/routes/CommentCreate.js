@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import CommentForm from '../shared/CommentForm'
+import messages from '../AutoDismissAlert/messages'
+
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
 
@@ -38,6 +40,11 @@ class CommentCreate extends Component {
       },
       data: { comment: this.state.comment }
     })
+      .then(res => this.props.msgAlert({
+        heading: 'Comment Created Successfully',
+        message: messages.commentCreateSuccess,
+        variant: 'success'
+      }))
       .then(res => this.setState({ created: true }))
       .catch(console.error)
   }

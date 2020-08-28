@@ -101,13 +101,13 @@ class Post extends Component {
       <div>
         <h4>{post.title}</h4>
         <p>{post.content}</p>
-        <OutlineButton variant= "outline-danger" onClick={this.destroyPost}>Delete Post</OutlineButton>
+        <OutlineButton variant= "outline-danger" size="sm" onClick={this.destroyPost}>Delete Post</OutlineButton>
         {/* Add a link to the edit book route when you click the edit button */}
         <Link to={`/posts/${this.props.match.params.id}/edit`}>
-          <OutlineButton variant="outline-warning">Edit</OutlineButton>
+          <OutlineButton variant="outline-warning" size="sm">Edit</OutlineButton>
         </Link>
         <Link to={`/posts/${this.props.match.params.id}/comments`}>
-          <OutlineButton variant="outline-warning">Comment</OutlineButton>
+          <OutlineButton variant="outline-warning" size="sm">Comment</OutlineButton>
         </Link>
         {commentHtml}
       </div>
