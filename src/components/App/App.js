@@ -31,6 +31,7 @@ class App extends Component {
   clearUser = () => this.setState({ user: null })
 
   msgAlert = ({ heading, message, variant }) => {
+    console.log('in messge alert')
     this.setState({ msgAlerts: [...this.state.msgAlerts, { heading, message, variant }] })
   }
 
@@ -74,7 +75,7 @@ class App extends Component {
             <PostEdit {...props} user={user}/>
           )}/>
           <AuthenticatedRoute user= {user} exact path='/posts/:id/comments' render={ (props) => (
-            <CommentCreate {...props} user={user}/>
+            <CommentCreate {...props} user={user} msgAlert={this.msgAlert} setCreated={this.setCreated}/>
           )}/>
           <AuthenticatedRoute user= {user} exact path='/posts/:id/comments/:commentid/edit' render={ (props) => (
             <CommentEdit {...props} user={user}/>
