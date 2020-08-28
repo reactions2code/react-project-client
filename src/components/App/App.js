@@ -15,6 +15,7 @@ import PostEdit from '../routes/PostEdit'
 import CommentCreate from '../routes/CommentCreate'
 import CommentEdit from '../routes/CommentEdit'
 import { withRouter } from 'react-router'
+import Home from '../routes/Home'
 
 class App extends Component {
   constructor () {
@@ -80,18 +81,7 @@ class App extends Component {
           <AuthenticatedRoute user= {user} exact path='/posts/:id/comments/:commentid/edit' render={ (props) => (
             <CommentEdit {...props} user={user}/>
           )}/>
-          <Route exact path='/' render={() => {
-            const mystyle = {
-              color: 'white',
-              backgroundColor: 'red',
-              fontFamily: 'Arial'
-            }
-            return (
-              <div style={mystyle}>
-                <p>Please Sign In Above</p>
-              </div>
-            )
-          }}/>
+          <Route exact path='/' component={Home} />
         </main>
       </Fragment>
     )
