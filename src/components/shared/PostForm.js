@@ -1,37 +1,39 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import OutlineButton from './OutlineButton.js'
 
 const PostForm = ({ post, handleSubmit, handleChange, cancelPath }) => (
-  <form onSubmit={handleSubmit}>
-    <label>Title</label>
-    <input
-      placeholder='Enter a title'
-      value={post.title}
-      name='title'
-      onChange={handleChange}
-    />
+  <div className='long'>
+    <form onSubmit={handleSubmit}>
+      <label>Topic:</label><br/>
+      <input
+        placeholder='Enter a topic'
+        value={post.topic}
+        name='topic'
+        onChange={handleChange}
+      /><br/>
 
-    <label>content</label>
-    <input
-      placeholder='content...'
-      value={post.content}
-      name='content'
-      onChange={handleChange}
-    />
+      <label>Title:</label><br/>
+      <input
+        placeholder='Enter a title'
+        value={post.title}
+        name='title'
+        onChange={handleChange}
+      /><br/>
 
-    <label>Topic</label>
-    <input
-      placeholder='topic'
-      value={post.topic}
-      name='topic'
-      onChange={handleChange}
-    />
-
-    <button type='submit'>Submit</button>
-    <Link to={cancelPath}>
-      <button>Cancel</button>
-    </Link>
-  </form>
+      <label>Content:</label><br/>
+      <input
+        placeholder='Content...'
+        value={post.content}
+        name='content'
+        onChange={handleChange}
+      /><br/>
+      <OutlineButton size="sm" variant="outline-success" type="submit">Submit</OutlineButton>
+      <Link to={cancelPath}>
+        <OutlineButton size="sm" variant="outline-dark">Cancel</OutlineButton>
+      </Link>
+    </form>
+  </div>
 )
 
 export default PostForm

@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom'
 import PostForm from '../shared/PostForm'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
+import { withRouter } from 'react-router'
 
 class PostEdit extends Component {
   constructor (props) {
@@ -36,7 +37,6 @@ class PostEdit extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    console.log(this.props.user)
     axios({
       url: `${apiUrl}/posts/${this.props.match.params.id}`,
       method: 'PATCH',
@@ -66,11 +66,11 @@ class PostEdit extends Component {
           post={post}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
-          cancelPath='/'
+          cancelPath={`/posts/${this.props.match.params.id}`}
         />
       </div>
     )
   }
 }
 
-export default PostEdit
+export default withRouter(PostEdit)

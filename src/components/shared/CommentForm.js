@@ -1,20 +1,39 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import OutlineButton from './OutlineButton.js'
 
-const CommentForm = ({ comment, handleSubmit, handleChange, cancelPath }) => (
-  <form onSubmit={handleSubmit}>
-    <label>comment</label>
-    <input
-      placeholder='comment...'
-      value={comment.content}
-      name='content'
-      onChange={handleChange}
-    />
-    <button type='submit'>Submit</button>
-    <Link to={cancelPath}>
-      <button>Cancel</button>
-    </Link>
-  </form>
+const PostForm = ({ post, handleSubmit, handleChange, cancelPath }) => (
+  <div className='long'>
+    <form onSubmit={handleSubmit}>
+      <label>Topic:</label><br/>
+      <input
+        placeholder='Enter a topic'
+        value={post.topic}
+        name='topic'
+        onChange={handleChange}
+      /><br/>
+
+      <label>Title:</label><br/>
+      <input
+        placeholder='Enter a title'
+        value={post.title}
+        name='title'
+        onChange={handleChange}
+      /><br/>
+
+      <label>Content:</label><br/>
+      <input
+        placeholder='Content...'
+        value={post.content}
+        name='content'
+        onChange={handleChange}
+      /><br/>
+      <OutlineButton size="sm" variant="outline-success" type="submit">Submit</OutlineButton>
+      <Link to={cancelPath}>
+        <OutlineButton size="sm" variant="outline-dark">Cancel</OutlineButton>
+      </Link>
+    </form>
+  </div>
 )
 
-export default CommentForm
+export default PostForm

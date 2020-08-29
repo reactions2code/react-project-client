@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom'
 import PostForm from '../shared/PostForm'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
+import { withRouter } from 'react-router'
 
 class PostCreate extends Component {
   constructor (props) {
@@ -31,7 +32,6 @@ class PostCreate extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    console.log(this.props.user)
     axios({
       url: `${apiUrl}/posts`,
       method: 'POST',
@@ -68,4 +68,4 @@ class PostCreate extends Component {
   }
 }
 
-export default PostCreate
+export default withRouter(PostCreate)

@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import CommentForm from '../shared/CommentForm'
+import messages from '../AutoDismissAlert/messages'
+
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
+import { withRouter } from 'react-router'
 
 class CommentCreate extends Component {
   constructor (props) {
@@ -30,7 +33,6 @@ class CommentCreate extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    console.log(this.props.user)
     axios({
       url: `${apiUrl}/posts/${this.props.match.params.id}/comments`,
       method: 'POST',
@@ -39,6 +41,11 @@ class CommentCreate extends Component {
       },
       data: { comment: this.state.comment }
     })
+      .then(res => this.props.msgAlert({
+        heading: 'Comment Created Successfully',
+        message: messages.commentCreateSuccess,
+        variant: 'success'
+      }))
       .then(res => this.setState({ created: true }))
       .catch(console.error)
   }
@@ -53,18 +60,17 @@ class CommentCreate extends Component {
       // redirect to the show page (route)
       return <Redirect to={`/posts/${this.props.match.params.id}`} />
     }
-    console.log(this.props)
     return (
       <div>
         <CommentForm
           comment={comment}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
-          cancelPath='/'
+          cancelPath={`/posts/${this.props.match.params.id}`}
         />
       </div>
     )
   }
 }
 
-export default CommentCreate
+export default withRouter(CommentCreate)

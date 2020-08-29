@@ -16,7 +16,12 @@ import PostEdit from '../routes/PostEdit'
 =======
 import CommentCreate from '../routes/CommentCreate'
 import CommentEdit from '../routes/CommentEdit'
+<<<<<<< HEAD
 >>>>>>> development
+=======
+import { withRouter } from 'react-router'
+import Home from '../routes/Home'
+>>>>>>> lastHome
 
 class App extends Component {
   constructor () {
@@ -33,6 +38,7 @@ class App extends Component {
   clearUser = () => this.setState({ user: null })
 
   msgAlert = ({ heading, message, variant }) => {
+    console.log('in messge alert')
     this.setState({ msgAlerts: [...this.state.msgAlerts, { heading, message, variant }] })
   }
 
@@ -78,16 +84,20 @@ class App extends Component {
 <<<<<<< HEAD
 =======
           <AuthenticatedRoute user= {user} exact path='/posts/:id/comments' render={ (props) => (
-            <CommentCreate {...props} user={user}/>
+            <CommentCreate {...props} user={user} msgAlert={this.msgAlert} setCreated={this.setCreated}/>
           )}/>
           <AuthenticatedRoute user= {user} exact path='/posts/:id/comments/:commentid/edit' render={ (props) => (
             <CommentEdit {...props} user={user}/>
           )}/>
+<<<<<<< HEAD
 >>>>>>> development
+=======
+          <Route exact path='/' component={Home} />
+>>>>>>> lastHome
         </main>
       </Fragment>
     )
   }
 }
 
-export default App
+export default withRouter(App)
