@@ -12,16 +12,10 @@ import Posts from '../routes/Posts'
 import PostCreate from '../routes/PostCreate'
 import Post from '../routes/Post'
 import PostEdit from '../routes/PostEdit'
-<<<<<<< HEAD
-=======
 import CommentCreate from '../routes/CommentCreate'
 import CommentEdit from '../routes/CommentEdit'
-<<<<<<< HEAD
->>>>>>> development
-=======
 import { withRouter } from 'react-router'
 import Home from '../routes/Home'
->>>>>>> lastHome
 
 class App extends Component {
   constructor () {
@@ -81,19 +75,13 @@ class App extends Component {
           <AuthenticatedRoute user={user} exact path='/posts/:id/edit' render={ (props) => (
             <PostEdit {...props} user={user}/>
           )}/>
-<<<<<<< HEAD
-=======
           <AuthenticatedRoute user= {user} exact path='/posts/:id/comments' render={ (props) => (
             <CommentCreate {...props} user={user} msgAlert={this.msgAlert} setCreated={this.setCreated}/>
           )}/>
           <AuthenticatedRoute user= {user} exact path='/posts/:id/comments/:commentid/edit' render={ (props) => (
             <CommentEdit {...props} user={user}/>
           )}/>
-<<<<<<< HEAD
->>>>>>> development
-=======
           <Route exact path='/' component={Home} />
->>>>>>> lastHome
         </main>
       </Fragment>
     )
