@@ -6,5 +6,13 @@ export default {
   signOutSuccess: 'Come back soon!',
   changePasswordSuccess: 'Password changed successfully!',
   changePasswordFailure: 'Failed to change passwords. Check your old password and try again.',
-  commentCreateSuccess: '👍'
+  postCreatedSuccess: '👍',
+  postCreatedFailure: '',
+  postEditSuccess: '',
+  postEditFailure: '',
+  commentCreateSuccess: '👍',
+  commentCreateFailure: '',
+  commentEditSuccess: '',
+  commentEditFailure: '',
+  commentDeleteSuccess: ''
 }

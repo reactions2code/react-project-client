@@ -5,6 +5,7 @@ import OutlineButton from '../shared/OutlineButton.js'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
 import { withRouter } from 'react-router'
+// import messages from '../AutoDismissAlert/messages'
 
 class Post extends Component {
   constructor (props) {
