@@ -46,7 +46,11 @@ class CommentEdit extends Component {
         variant: 'success'
       }))
       .then(res => this.setState({ updated: true }))
-      .catch(console.error)
+      .catch(res => this.props.msgAlert({
+        heading: 'Comment Edit Failed',
+        message: messages.commentEditFailure,
+        variant: 'danger'
+      }))
   }
 
   render () {

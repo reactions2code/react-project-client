@@ -53,6 +53,11 @@ class PostEdit extends Component {
       }))
       .then(res => this.setState({ updated: true }))
       .catch(console.error)
+      // .catch(res => this.props.msgAlert({
+      //   heading: 'Post Edit Failed',
+      //   message: messages.postEditFailure,
+      //   variant: 'danger'
+      // }))
   }
 
   render () {

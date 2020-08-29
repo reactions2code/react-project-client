@@ -79,6 +79,11 @@ class Post extends Component {
 
     // if the deleted state is true
     if (deleted) {
+      // this.setState(res => this.props.msgAlert({
+      //   heading: 'Post Deleted Successfully',
+      //   message: messages.commentCreateSuccess,
+      //   variant: 'success'
+      // }))
       // redirect to the home page
       return <Redirect to={{
         pathname: '/posts',
