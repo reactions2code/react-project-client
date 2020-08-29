@@ -66,7 +66,7 @@ class CommentCreate extends Component {
           comment={comment}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
-          cancelPath='/'
+          cancelPath={`/posts/${this.props.match.params.id}`}
         />
       </div>
     )
