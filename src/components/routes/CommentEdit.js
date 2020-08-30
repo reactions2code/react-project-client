@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import CommentForm from '../shared/CommentForm'
+import messages from '../AutoDismissAlert/messages'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
 import { withRouter } from 'react-router'
-import messages from '../AutoDismissAlert/messages'
+// import messages from '../AutoDismissAlert/messages'
 
 class CommentEdit extends Component {
   constructor (props) {

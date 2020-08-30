@@ -49,7 +49,7 @@ class PostEdit extends Component {
       .then(res => this.setState({ updated: true }))
       .then(res => this.props.msgAlert({
         heading: 'Post Edited Successfully',
-        message: messages.postEditSuccess,
+        message: messages.postEditedSuccess,
         variant: 'success'
       }))
       .catch(console.error)
