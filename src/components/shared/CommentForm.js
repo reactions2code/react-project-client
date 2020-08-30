@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import OutlineButton from './OutlineButton.js'
 
+// const commentOwner = (this.commentId)
 const CommentForm = ({ comment, handleSubmit, handleChange, cancelPath }) => (
   <div className='long'>
     <form onSubmit={handleSubmit}>

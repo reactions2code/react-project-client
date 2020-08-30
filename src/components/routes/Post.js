@@ -118,19 +118,29 @@ class Post extends Component {
         ))}
       </div>
     )
+    // post.comments.id(commentId)
+    // const owner = (this.post._id === this.post.owner)
     return (
       <div className='long'>
         <h3>Post:</h3>
         <div className='post'>
           <h4>{post.title}</h4>
           <p>{post.content}</p>
-          <Link to={`/posts/${this.props.match.params.id}/edit`}>
-            <OutlineButton variant="outline-info">Edit</OutlineButton>
-          </Link>
-          <Link to={`/posts/${this.props.match.params.id}/comments`}>
-            <OutlineButton variant="outline-info">Comment</OutlineButton>
-          </Link>
-          <OutlineButton variant= "outline-danger" onClick={this.destroyPost}>Delete Post</OutlineButton>
+          {this.post ? (
+            <React.Fragment>
+              <Link to={`/posts/${this.props.match.params.id}/edit`}>
+                <OutlineButton variant="outline-info">Edit</OutlineButton>
+              </Link>
+              <OutlineButton variant= "outline-danger" onClick={this.destroyPost}>Delete Post</OutlineButton>
+              <Link to={`/posts/${this.props.match.params.id}/comments`}>
+                <OutlineButton variant="outline-info">Comment</OutlineButton>
+              </Link>
+            </React.Fragment>)
+            : (<React.Fragment>
+              <Link to={`/posts/${this.props.match.params.id}/comments`}>
+                <OutlineButton variant="outline-info">Comment</OutlineButton>
+              </Link>
+            </React.Fragment>)}
         </div>
         <h3>Comments:</h3>
         {commentHtml}
