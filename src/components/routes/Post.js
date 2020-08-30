@@ -30,7 +30,7 @@ class Post extends Component {
       }
     })
       .then(res => this.setState({ post: res.data.post }))
-      .catch(console.error)
+      .catch()
   }
 
   destroyPost = () => {
