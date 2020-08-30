@@ -48,7 +48,11 @@ class Post extends Component {
         message: messages.postDeleteSuccess,
         variant: 'success'
       }))
-      .catch(console.error)
+      .catch(() => this.props.msgAlert({
+        heading: 'Post Delete Failed',
+        message: messages.postDeleteFailure,
+        variant: 'danger'
+      }))
   }
   destroyComment = (commentId) => {
     axios({
@@ -73,7 +77,11 @@ class Post extends Component {
         message: messages.commentDeleteSuccess,
         variant: 'success'
       }))
-      .catch(console.error)
+      .catch(() => this.props.msgAlert({
+        heading: 'Comment Delete Failed',
+        message: messages.commentDeleteFailure,
+        variant: 'danger'
+      }))
   }
   editComment = (commentId) => {
     const newPath = `/posts/${this.props.match.params.id}/comments/${commentId}/edit`

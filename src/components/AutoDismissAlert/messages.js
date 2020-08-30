@@ -12,6 +12,7 @@ export default {
   postEditFailure: 'Only creator can edit this post',
   postIndexFailure: 'Oops... Try again',
   postDeleteSuccess: 'Start a new post 📝',
+  postDeleteFailure: 'Only creator can delete this post',
   commentCreateSuccess: '👍',
   commentCreateFailure: 'Please fill out form 😩',
   commentEditSuccess: '',

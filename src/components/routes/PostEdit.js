@@ -52,12 +52,11 @@ class PostEdit extends Component {
         message: messages.postEditedSuccess,
         variant: 'success'
       }))
-      .catch(console.error)
-      // .catch(res => this.props.msgAlert({
-      //   heading: 'Post Edit Failed',
-      //   message: messages.postEditFailure,
-      //   variant: 'danger'
-      // }))
+      .catch(() => this.props.msgAlert({
+        heading: 'Post Edit Failed',
+        message: messages.postEditFailure,
+        variant: 'danger'
+      }))
   }
 
   render () {
