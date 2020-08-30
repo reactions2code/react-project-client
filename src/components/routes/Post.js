@@ -5,7 +5,7 @@ import OutlineButton from '../shared/OutlineButton.js'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
 import { withRouter } from 'react-router'
-// import messages from '../AutoDismissAlert/messages'
+import messages from '../AutoDismissAlert/messages'
 
 class Post extends Component {
   constructor (props) {
@@ -43,6 +43,11 @@ class Post extends Component {
     })
       // update their `deleted` state to be `true`
       .then(() => this.setState({ deleted: true }))
+      .then(() => this.props.msgAlert({
+        heading: 'Post Deleted Successfully',
+        message: messages.postDeleteSuccess,
+        variant: 'success'
+      }))
       .catch(console.error)
   }
   destroyComment = (commentId) => {
@@ -63,6 +68,11 @@ class Post extends Component {
         })
       })
       .then(res => this.setState({ post: res.data.post }))
+      .then(() => this.props.msgAlert({
+        heading: 'Comment Deleted Successfully',
+        message: messages.commentDeleteSuccess,
+        variant: 'success'
+      }))
       .catch(console.error)
   }
   editComment = (commentId) => {
@@ -79,15 +89,10 @@ class Post extends Component {
 
     // if the deleted state is true
     if (deleted) {
-      // this.setState(res => this.props.msgAlert({
-      //   heading: 'Post Deleted Successfully',
-      //   message: messages.commentCreateSuccess,
-      //   variant: 'success'
-      // }))
       // redirect to the home page
       return <Redirect to={{
-        pathname: '/posts',
-        state: { message: 'Deleted post successfully' }
+        pathname: '/posts'
+        // state: { message: 'Deleted post successfully' }
       }} />
     }
 

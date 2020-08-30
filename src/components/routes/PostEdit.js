@@ -46,12 +46,12 @@ class PostEdit extends Component {
       },
       data: { post: this.state.post }
     })
+      .then(res => this.setState({ updated: true }))
       .then(res => this.props.msgAlert({
         heading: 'Post Edited Successfully',
         message: messages.postEditSuccess,
         variant: 'success'
       }))
-      .then(res => this.setState({ updated: true }))
       .catch(console.error)
       // .catch(res => this.props.msgAlert({
       //   heading: 'Post Edit Failed',

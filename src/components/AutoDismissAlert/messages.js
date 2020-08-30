@@ -11,10 +11,11 @@ export default {
   postEditSuccess: '',
   postEditFailure: 'Only creator can edit this post',
   postIndexFailure: 'Oops... Try again',
+  postDeleteSuccess: 'Start a new post 📝',
   commentCreateSuccess: '👍',
   commentCreateFailure: 'Please fill out form 😩',
   commentEditSuccess: '',
   commentEditFailure: 'Only creator can edit this comment',
-  commentDeleteSuccess: '',
+  commentDeleteSuccess: 'Comment on more posts!',
   commentDeleteFailure: 'Only creator can delete this comment'
 }

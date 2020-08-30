@@ -35,6 +35,7 @@ class Posts extends Component {
         message: messages.postIndexFailure,
         variant: 'danger'
       }))
+      // .catch(console.error)
   }
 
   render () {
