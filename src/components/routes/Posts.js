@@ -45,11 +45,9 @@ class Posts extends Component {
       return posts
     }
     return (
-      <div>
-        <div>
-          <h1>Posts</h1>
-          {posts}
-        </div>
+      <div className='long'>
+        <h1>Posts</h1>
+        {posts}
       </div>
     )
   }

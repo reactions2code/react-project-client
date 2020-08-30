@@ -49,7 +49,6 @@ class PostCreate extends Component {
         })
         return res
       })
-
       .then(res => this.setState({ createdId: res.data.post._id }))
       .catch(console.error)
   }

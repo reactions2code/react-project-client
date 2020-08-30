@@ -5,6 +5,7 @@ import OutlineButton from '../shared/OutlineButton.js'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
 import { withRouter } from 'react-router'
+// import messages from '../AutoDismissAlert/messages'
 
 class Post extends Component {
   constructor (props) {
@@ -98,7 +99,7 @@ class Post extends Component {
       </div>
     )
     return (
-      <div>
+      <div className='long'>
         <h3>Post:</h3>
         <div className='post'>
           <h4>{post.title}</h4>
