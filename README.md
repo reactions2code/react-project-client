@@ -68,5 +68,5 @@ Entity Relationship Diagrams, along with wireframes, allowed us to get a better 
 #### Wireframe:
 <a href="https://imgur.com/td2RI7F"><img src="https://i.imgur.com/td2RI7F.png" title="source: imgur.com" /></a>
 
-#### Gantt chart:
-<a href="https://imgur.com/a6NSTOk"><img src="https://i.imgur.com/a6NSTOk.png" title="source: imgur.com" /></a>
+#### ERD:
+<a href="https://imgur.com/EQVqFoy"><img src="https://i.imgur.com/EQVqFoy.png" title="source: imgur.com" /></a>
