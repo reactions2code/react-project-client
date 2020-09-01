@@ -69,15 +69,15 @@ class App extends Component {
             <PostCreate user={user} msgAlert={this.msgAlert} setCreatedId={this.setCreatedId}/>
           )}/>
           <AuthenticatedRoute user={user} exact path='/posts/:id' render={ (props) => (
-            <Post {...props} user={user}/>
+            <Post {...props} user={user} msgAlert={this.msgAlert} setDeleted={this.setDeleted}/>
           )}/>
           <AuthenticatedRoute user={user} exact path='/posts/:id/edit' render={ (props) => (
             <PostEdit {...props} user={user} msgAlert={this.msgAlert} setUpdated={this.setUpdated}/>
           )}/>
-          <AuthenticatedRoute user= {user} exact path='/posts/:id/comments' render={ (props) => (
+          <AuthenticatedRoute user={user} exact path='/posts/:id/comments' render={ (props) => (
             <CommentCreate {...props} user={user} msgAlert={this.msgAlert} setCreated={this.setCreated}/>
           )}/>
-          <AuthenticatedRoute user= {user} exact path='/posts/:id/comments/:commentid/edit' render={ (props) => (
+          <AuthenticatedRoute user={user} exact path='/posts/:id/comments/:commentid/edit' render={ (props) => (
             <CommentEdit {...props} user={user} msgAlert={this.msgAlert} setUpdated={this.setUpdated}/>
           )}/>
           <Route exact path='/' component={Home} />

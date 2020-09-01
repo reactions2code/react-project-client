@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
 import { withRouter } from 'react-router'
+import messages from '../AutoDismissAlert/messages'
 
 // This will be our Books Index component (show all books)
 class Posts extends Component {
@@ -29,7 +30,12 @@ class Posts extends Component {
     })
       .then(res => this.setState({ posts: res.data.posts }))
       // .then(res => console.log(res))
-      .catch(console.error)
+      .catch(res => this.props.msgAlert({
+        heading: 'Post Index Failed',
+        message: messages.postIndexFailure,
+        variant: 'danger'
+      }))
+      // .catch(console.error)
   }
 
   render () {

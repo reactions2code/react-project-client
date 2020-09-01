@@ -10,6 +10,7 @@ const CommentForm = ({ comment, handleSubmit, handleChange, cancelPath }) => (
       <input
         placeholder='comment...'
         value={comment.content}
+        required
         name='content'
         onChange={handleChange}
       /><br/>

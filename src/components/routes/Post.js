@@ -98,10 +98,7 @@ class Post extends Component {
       </div>
     )
     // post.comments.id(commentId)
-    // const owner = (this.user.id === this.post.owner.id)
-    // or
-    // const owner = (this.user.id && this.post.owner.id)
-    // owner
+    // const owner = (this.post._id === this.post.owner)
     return (
       <div className='long'>
         <h3>Post:</h3>

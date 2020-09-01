@@ -9,6 +9,7 @@ const PostForm = ({ post, handleSubmit, handleChange, cancelPath }) => (
       <input
         placeholder='Enter a topic'
         value={post.topic}
+        required
         name='topic'
         onChange={handleChange}
       /><br/>
@@ -17,6 +18,7 @@ const PostForm = ({ post, handleSubmit, handleChange, cancelPath }) => (
       <input
         placeholder='Enter a title'
         value={post.title}
+        required
         name='title'
         onChange={handleChange}
       /><br/>
@@ -25,6 +27,7 @@ const PostForm = ({ post, handleSubmit, handleChange, cancelPath }) => (
       <input
         placeholder='Content...'
         value={post.content}
+        required
         name='content'
         onChange={handleChange}
       /><br/>
