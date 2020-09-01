@@ -5,7 +5,6 @@ import OutlineButton from '../shared/OutlineButton.js'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
 import { withRouter } from 'react-router'
-import messages from '../AutoDismissAlert/messages'
 
 class Post extends Component {
   constructor (props) {
@@ -30,7 +29,7 @@ class Post extends Component {
       }
     })
       .then(res => this.setState({ post: res.data.post }))
-      .catch()
+      .catch(console.error)
   }
 
   destroyPost = () => {
@@ -43,16 +42,7 @@ class Post extends Component {
     })
       // update their `deleted` state to be `true`
       .then(() => this.setState({ deleted: true }))
-      .then(() => this.props.msgAlert({
-        heading: 'Post Deleted Successfully',
-        message: messages.postDeleteSuccess,
-        variant: 'success'
-      }))
-      .catch(() => this.props.msgAlert({
-        heading: 'Post Delete Failed',
-        message: messages.postDeleteFailure,
-        variant: 'danger'
-      }))
+      .catch(console.error)
   }
   destroyComment = (commentId) => {
     axios({
@@ -72,16 +62,7 @@ class Post extends Component {
         })
       })
       .then(res => this.setState({ post: res.data.post }))
-      .then(() => this.props.msgAlert({
-        heading: 'Comment Deleted Successfully',
-        message: messages.commentDeleteSuccess,
-        variant: 'success'
-      }))
-      .catch(() => this.props.msgAlert({
-        heading: 'Comment Delete Failed',
-        message: messages.commentDeleteFailure,
-        variant: 'danger'
-      }))
+      .catch(console.error)
   }
   editComment = (commentId) => {
     const newPath = `/posts/${this.props.match.params.id}/comments/${commentId}/edit`
@@ -99,8 +80,8 @@ class Post extends Component {
     if (deleted) {
       // redirect to the home page
       return <Redirect to={{
-        pathname: '/posts'
-        // state: { message: 'Deleted post successfully' }
+        pathname: '/posts',
+        state: { message: 'Deleted post successfully' }
       }} />
     }
 
@@ -118,11 +99,6 @@ class Post extends Component {
         ))}
       </div>
     )
-    // post.comments.id(commentId)
-    // const owner = (this.user.id === this.post.owner.id)
-    // or
-    // const owner = (this.user.id && this.post.owner.id)
-    // owner
     return (
       <div className='long'>
         <h3>Post:</h3>
