@@ -20,7 +20,12 @@ class PostEdit extends Component {
     }
   }
   componentDidMount () {
-    axios(`${apiUrl}/posts/${this.props.match.params.id}`)
+    axios(`${apiUrl}/posts/${this.props.match.params.id}`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${this.props.user.token}`
+      }
+    })
       .then(res => this.setState({ post: res.data.post }))
       .catch(console.error)
   }
