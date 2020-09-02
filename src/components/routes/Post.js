@@ -5,7 +5,6 @@ import OutlineButton from '../shared/OutlineButton.js'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
 import { withRouter } from 'react-router'
-import messages from '../AutoDismissAlert/messages'
 
 class Post extends Component {
   constructor (props) {
@@ -30,7 +29,7 @@ class Post extends Component {
       }
     })
       .then(res => this.setState({ post: res.data.post }))
-      .catch()
+      .catch(console.error)
   }
 
   destroyPost = () => {
@@ -43,16 +42,7 @@ class Post extends Component {
     })
       // update their `deleted` state to be `true`
       .then(() => this.setState({ deleted: true }))
-      .then(() => this.props.msgAlert({
-        heading: 'Post Deleted Successfully',
-        message: messages.postDeleteSuccess,
-        variant: 'success'
-      }))
-      .catch(() => this.props.msgAlert({
-        heading: 'Post Delete Failed',
-        message: messages.postDeleteFailure,
-        variant: 'danger'
-      }))
+      .catch(console.error)
   }
   destroyComment = (commentId) => {
     axios({
@@ -72,16 +62,7 @@ class Post extends Component {
         })
       })
       .then(res => this.setState({ post: res.data.post }))
-      .then(() => this.props.msgAlert({
-        heading: 'Comment Deleted Successfully',
-        message: messages.commentDeleteSuccess,
-        variant: 'success'
-      }))
-      .catch(() => this.props.msgAlert({
-        heading: 'Comment Delete Failed',
-        message: messages.commentDeleteFailure,
-        variant: 'danger'
-      }))
+      .catch(console.error)
   }
   editComment = (commentId) => {
     const newPath = `/posts/${this.props.match.params.id}/comments/${commentId}/edit`
@@ -99,8 +80,8 @@ class Post extends Component {
     if (deleted) {
       // redirect to the home page
       return <Redirect to={{
-        pathname: '/posts'
-        // state: { message: 'Deleted post successfully' }
+        pathname: '/posts',
+        state: { message: 'Deleted post successfully' }
       }} />
     }
 
@@ -118,19 +99,28 @@ class Post extends Component {
         ))}
       </div>
     )
+    const owner = (this.props.user._id === this.state.post.owner)
     return (
       <div className='long'>
         <h3>Post:</h3>
         <div className='post'>
           <h4>{post.title}</h4>
           <p>{post.content}</p>
-          <Link to={`/posts/${this.props.match.params.id}/edit`}>
-            <OutlineButton variant="outline-info">Edit</OutlineButton>
-          </Link>
-          <Link to={`/posts/${this.props.match.params.id}/comments`}>
-            <OutlineButton variant="outline-info">Comment</OutlineButton>
-          </Link>
-          <OutlineButton variant= "outline-danger" onClick={this.destroyPost}>Delete Post</OutlineButton>
+          {owner ? (
+            <React.Fragment>
+              <Link to={`/posts/${this.props.match.params.id}/edit`}>
+                <OutlineButton variant="outline-info">Edit</OutlineButton>
+              </Link>
+              <OutlineButton variant= "outline-danger" onClick={this.destroyPost}>Delete Post</OutlineButton>
+              <Link to={`/posts/${this.props.match.params.id}/comments`}>
+                <OutlineButton variant="outline-info">Comment</OutlineButton>
+              </Link>
+            </React.Fragment>)
+            : (<React.Fragment>
+              <Link to={`/posts/${this.props.match.params.id}/comments`}>
+                <OutlineButton variant="outline-info">Comment</OutlineButton>
+              </Link>
+            </React.Fragment>)}
         </div>
         <h3>Comments:</h3>
         {commentHtml}
