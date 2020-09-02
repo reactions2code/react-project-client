@@ -93,19 +93,19 @@ class Post extends Component {
             content={comment.content}
             deleteComment={() => this.destroyComment(comment._id)}
             editComment={() => this.editComment(comment._id)}
+            owner={comment.owner}
           />
         ))}
       </div>
     )
-    // post.comments.id(commentId)
-    // const owner = (this.post._id === this.post.owner)
+    const owner = (this.props.user._id === this.state.post.owner)
     return (
       <div className='long'>
         <h3>Post:</h3>
         <div className='post'>
           <h4>{post.title}</h4>
           <p>{post.content}</p>
-          {this.post ? (
+          {owner ? (
             <React.Fragment>
               <Link to={`/posts/${this.props.match.params.id}/edit`}>
                 <OutlineButton variant="outline-info">Edit</OutlineButton>
