@@ -112,6 +112,8 @@ class Post extends Component {
             content={comment.content}
             deleteComment={() => this.destroyComment(comment._id)}
             editComment={() => this.editComment(comment._id)}
+            owner={comment.owner}
+            user={this.props.user._id}
           />
         ))}
       </div>
