@@ -5,6 +5,7 @@ import OutlineButton from '../shared/OutlineButton.js'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
 import { withRouter } from 'react-router'
+import messages from '../AutoDismissAlert/messages'
 
 class Post extends Component {
   constructor (props) {
@@ -42,6 +43,11 @@ class Post extends Component {
     })
       // update their `deleted` state to be `true`
       .then(() => this.setState({ deleted: true }))
+      .then(res => this.props.msgAlert({
+        heading: 'Post Deleted Successfully',
+        message: messages.postDeleteSuccess,
+        variant: 'success'
+      }))
       .catch(console.error)
   }
   destroyComment = (commentId) => {
@@ -62,6 +68,11 @@ class Post extends Component {
         })
       })
       .then(res => this.setState({ post: res.data.post }))
+      .then(res => this.props.msgAlert({
+        heading: 'Comment Deleted Successfully',
+        message: messages.commentDeleteSuccess,
+        variant: 'success'
+      }))
       .catch(console.error)
   }
   editComment = (commentId) => {
